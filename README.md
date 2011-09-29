@@ -1,8 +1,8 @@
-= Meeting Cost Clock
+# Meeting Cost Clock
 
 Expose the cost of meetings.
 
-== To Do
+## To Do
 
 * "End it" button
 * make it pretty
