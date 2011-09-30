@@ -2,10 +2,24 @@ $(function(){
   var clock, startDate, lastDate;
   var personMliliseconds = 0;
   var costPerMilisecond = 0.015 / 1000;
+  var requestAnimationFrame = window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.oRequestAnimationFrame;
 
   function startClock() {
     startDate = lastDate = new Date();
-    clock = setInterval(counter, 10);
+    if(requestAnimationFrame) {
+        clock = 1
+        raf = function() {
+          if (clock) {
+            requestAnimationFrame( raf );
+            counter();
+          }
+        }
+        requestAnimationFrame( raf );;
+    }else{
+      clock = setInterval(counter, 10);
+    }
   }
 
   function counter() {
